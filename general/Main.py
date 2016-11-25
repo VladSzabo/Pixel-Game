@@ -55,6 +55,7 @@ if __name__ == "__main__":
     info = open("settings.txt")
     connection_type = info.readline().replace("\n", "").replace(" ", "").split("=")[1]
     ip = info.readline().replace("\n", "").replace(" ", "").split("=")[1]
+    port = int(info.readline().replace("\n", "").replace(" ", "").split("=")[1])
     Constants.width = int(info.readline().replace("\n", "").replace(" ", "").split("=")[1])
     Constants.height = int(info.readline().replace("\n", "").replace(" ", "").split("=")[1])
     info.close()
@@ -62,10 +63,10 @@ if __name__ == "__main__":
     Constants()
 
     if connection_type == "server":
-        Server()
-        Client(None)
+        Server(port)
+        Client(None, port)
     else:
-        Client(ip)
+        Client(ip, port)
 
     Game("Game", Constants.width, Constants.height)
 

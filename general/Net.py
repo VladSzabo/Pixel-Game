@@ -11,12 +11,12 @@ class Client(object):
     firstTimeConnect = True
     my_id = None
 
-    def __init__(self, ip):
+    def __init__(self, ip, port):
         if ip is None:
             ip = socket.gethostname()
-            self.tcpCliSock.connect((ip, 80))
+            self.tcpCliSock.connect((ip, port))
         else:
-            self.tcpCliSock.connect((ip, 80))
+            self.tcpCliSock.connect((ip, port))
         print("Client connected to IP: " + str(ip))
         Client.start_client()
 
