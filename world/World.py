@@ -5,12 +5,7 @@ from general.Constants import Constants
 class Block:
     def __init__(self, image_bg, image_fore, rect, collide):
         self.image_bg = image_bg
-        if image_bg is not None and "tuple" not in str(type(image_bg)):
-            self.image_bg = pygame.transform.scale(self.image_bg, (rect[2], rect[3]))
-
         self.image_fore = image_fore
-        if image_fore is not None and "tuple" not in str(type(image_fore)):
-            self.image_fore = pygame.transform.scale(self.image_fore, (rect[2], rect[3]))
 
         self.rect = rect
         self.collide = collide

@@ -2,7 +2,6 @@ import pygame
 
 
 class Constants:
-
     sX = 0
     sY = 0
     width = 0
@@ -16,17 +15,26 @@ class Constants:
     SHIFT = False
 
     images = {
-        "block": pygame.image.load("res/block.png")
+        "block": pygame.image.load("res/block.png"),
+        "zombie": pygame.image.load("res/zombie.png")
     }
 
     def __init__(self):
         Constants.block_size *= Constants.width
         Constants.map_height_screen = int(Constants.map_width_screen * Constants.height / Constants.width)
+        for i in Constants.images.keys():
+            Constants.images[i] = pygame.transform.scale(Constants.images[i], (int(Constants.block_size),
+                                                         int(Constants.block_size)))
 
     @staticmethod
     def get_players():
         from entities.Entities import Entities
         return Entities.players
+
+    @staticmethod
+    def get_players_pos():
+        from entities.Entities import Entities
+        return [(i.x, i.y) for i in Entities.players]
 
     @staticmethod
     def get_main_player_coord():

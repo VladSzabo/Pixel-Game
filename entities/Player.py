@@ -37,12 +37,12 @@ class Player:
             if not self.collision(dir_x, dir_y):
                 if Constants.SHIFT:
                     Map.world[self.y][self.x].image_fore = self.color + (100,)
+                    Map.world[self.y][self.x].collide = True
 
                 self.x += dir_x
                 self.y += dir_y
                 Constants.sX += dir_x * Constants.block_size
                 Constants.sY += dir_y * Constants.block_size
-
 
     def collision(self, dir_x, dir_y):
         col = False
