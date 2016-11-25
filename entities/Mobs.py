@@ -9,7 +9,7 @@ class Zombie(Entity):
         image = Constants.images["zombie"]
         template = [[[0, 0], image], [[0, 1], image]]
 
-        super(self.__class__, self).__init__(x, y, template, 1/5)
+        super(self.__class__, self).__init__(x, y, template, 1./5)
         del image, template
 
     def update(self):

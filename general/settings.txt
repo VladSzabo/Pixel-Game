@@ -1,4 +1,4 @@
-CLIENT/SERVER = client
-IP = localhost
+CLIENT/SERVER = server
+IP = 79.119.150.138
 WIDTH = 1000
 HEIGHT = 600

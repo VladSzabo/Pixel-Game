@@ -13,7 +13,7 @@ import socket
 import asyncore
 
 
-class App:
+class App(object):
     clock = pygame.time.Clock()
     game_exit = False
 
@@ -51,7 +51,7 @@ class App:
             self.game_exit = True
 
 
-class Entity:
+class Entity(object):
     def __init__(self, image, draw_box, collision, id_entity):
         self.image = image
         self.image = pygame.transform.scale(self.image, (draw_box[2], draw_box[3]))
@@ -115,7 +115,7 @@ class Entity:
         return col
 
 
-class Client:
+class Client(object):
 
     tcpCliSock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     playersConnected = 1
@@ -123,8 +123,13 @@ class Client:
     my_id = None
 
     def __init__(self, ip):
-        self.tcpCliSock.connect((ip, 21567))
+        if ip is None:
+            ip = socket.gethostname()
+            self.tcpCliSock.connect((ip, 21567))
+        else:
+            self.tcpCliSock.connect((ip, 21567))
         print("Client connected to IP: " + str(ip))
+        Client.start_client()
 
     @staticmethod
     def send(message):
@@ -157,13 +162,12 @@ class Client:
                 id_ = data.split("|")[1]
                 Client.playersConnected = int(id_) + 1
 
-                Client.my_id = id_
-
+                Client.my_id = int(id_)
             else:
                 Client.playersConnected += 1
 
 
-class Server:
+class Server(object):
 
     clients = {}
     clientsId = {}
@@ -219,7 +223,8 @@ class Server:
             del Server.clientsId[one]
 
     def __init__(self):
-        pass
+        thread = Thread(target=Server.start_server)
+        thread.start()
 
     @staticmethod
     def start_server():

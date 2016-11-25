@@ -6,13 +6,13 @@ from entities.Mobs import Zombie
 class Entities:
     players = []
     mobs = []
+    colors = [(0, 0, 0), (255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0)]
 
     def __init__(self):
-        Entities.players.append(
-            Player(0, (0, 0, 0), Constants.map_width_screen // 2, Constants.map_height_screen // 2))
-        Entities.mobs.append(
-            Zombie(1, 1)
-        )
+        pass
+        # Entities.mobs.append(
+        #    Zombie(1, 1)
+        # )
 
     @staticmethod
     def render(game_display):
@@ -28,3 +28,7 @@ class Entities:
         for mob in Entities.mobs:
             mob.update()
 
+    @staticmethod
+    def add_player(id_):
+        Entities.players.append(Player(id_, Entities.colors[id_], Constants.map_width_screen / 2,
+                                Constants.map_height_screen / 2))

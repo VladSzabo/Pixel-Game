@@ -14,6 +14,7 @@ class Block:
         if self.image_bg is not None and "tuple" not in str(type(self.image_bg)):
             game_display.blit(self.image_bg,
                               [self.rect[0] - Constants.sX, self.rect[1] - Constants.sY, self.rect[2], self.rect[3]])
+
         elif "tuple" in str(type(self.image_bg)):
             game_display.fill(self.image_bg,
                               [self.rect[0] - Constants.sX, self.rect[1] - Constants.sY, self.rect[2], self.rect[3]])
@@ -52,10 +53,10 @@ class Map:
 
         player_coord = Constants.get_main_player_coord()
 
-        for i in range(player_coord[1] - Constants.map_height_screen // 2,
-                       player_coord[1] + Constants.map_height_screen // 2 + 1):
-            for j in range(player_coord[0] - Constants.map_width_screen // 2,
-                           player_coord[0] + Constants.map_width_screen // 2 + 1):
+        for i in range(player_coord[1] - Constants.map_height_screen / 2,
+                       player_coord[1] + Constants.map_height_screen / 2 + 1):
+            for j in range(player_coord[0] - Constants.map_width_screen / 2,
+                           player_coord[0] + Constants.map_width_screen / 2 + 1):
 
                 if 0 <= i < Map.height and 0 <= j < Map.width:
                     Map.world[i][j].render(game_display)

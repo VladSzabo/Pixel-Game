@@ -1,8 +1,9 @@
 import pygame
-from GameEngine import App
+from GameEngine import App, Server
 from general.Constants import Constants
 from world.World import Map
 from entities.Entities import Entities
+from general.Net import Client
 
 
 class Game(App):
@@ -33,6 +34,8 @@ class Game(App):
                 Constants.D = True
             if event.key == pygame.K_LSHIFT:
                 Constants.SHIFT = True
+            if event.key == pygame.K_LCTRL:
+                Constants.CTRL = True
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_a:
@@ -45,6 +48,8 @@ class Game(App):
                 Constants.D = False
             if event.key == pygame.K_LSHIFT:
                 Constants.SHIFT = False
+            if event.key == pygame.K_LCTRL:
+                Constants.CTRL = False
 
 if __name__ == "__main__":
     info = open("settings.txt")
@@ -55,6 +60,13 @@ if __name__ == "__main__":
     info.close()
 
     Constants()
+
+    if connection_type == "server":
+        Server()
+        Client(None)
+    else:
+        Client(ip)
+
     Game("Game", Constants.width, Constants.height)
 
     pygame.quit()

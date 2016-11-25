@@ -4,7 +4,6 @@ from math import sqrt
 
 
 class Entity:
-
     tick = 0
 
     def __init__(self, x, y, array, speed=1, health=100, damage=10, bullet=None):
@@ -20,7 +19,8 @@ class Entity:
     def render(self, game_display):
         for info in self.array:
             game_display.blit(info[1], [(self.x + info[0][0]) * Constants.block_size - Constants.sX,
-                                        (self.y + info[0][1]) * Constants.block_size - Constants.sY, Constants.block_size,
+                                        (self.y + info[0][1]) * Constants.block_size - Constants.sY,
+                                        Constants.block_size,
                                         Constants.block_size])
 
     def update(self):
@@ -76,15 +76,17 @@ class Entity:
         tmp_x, tmp_y = self.x, self.y
         distance_now, distance_last = 999, 1000
 
-        while distance_now < distance_last:
+        while distance_now < distance_last and not obs:
 
             distance_last = sqrt((tmp_x - target_x) ** 2 + (tmp_y - target_y) ** 2)
             for i in self.array:
                 if 0 <= tmp_x + i[0][0] + dir_x < Map.width and 0 <= tmp_y + i[0][1] + dir_y < Map.height:
                     if Map.world[tmp_y + i[0][1] + dir_y][tmp_x + i[0][0] + dir_x].collide:
                         obs = True
+                        break
                 else:
                     obs = True
+                    break
             tmp_x += dir_x
             tmp_y += dir_y
             distance_now = sqrt((tmp_x - target_x) ** 2 + (tmp_y - target_y) ** 2)
