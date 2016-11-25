@@ -14,9 +14,9 @@ class Client(object):
     def __init__(self, ip):
         if ip is None:
             ip = socket.gethostname()
-            self.tcpCliSock.connect((ip, 21567))
+            self.tcpCliSock.connect((ip, 80))
         else:
-            self.tcpCliSock.connect((ip, 21567))
+            self.tcpCliSock.connect((ip, 80))
         print("Client connected to IP: " + str(ip))
         Client.start_client()
 

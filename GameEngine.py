@@ -228,5 +228,5 @@ class Server(object):
 
     @staticmethod
     def start_server():
-        Server.MainServerSocket(21567)
+        Server.MainServerSocket(80)
         asyncore.loop()
