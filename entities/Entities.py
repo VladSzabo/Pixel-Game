@@ -1,6 +1,7 @@
 from entities.Player import Player
 from general.Constants import Constants
 from entities.Mobs import Zombie
+from entities.mobs_2 import Skeleton
 
 
 class Entities:
@@ -9,10 +10,9 @@ class Entities:
     colors = [(0, 0, 0), (255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0)]
 
     def __init__(self):
-        pass
-        # Entities.mobs.append(
-        #    Zombie(1, 1)
-        # )
+        Entities.mobs.append(
+            Skeleton(1, 1)
+         )
 
     @staticmethod
     def render(game_display):

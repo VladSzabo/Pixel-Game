@@ -3,7 +3,7 @@ from world.World import Map
 from math import sqrt
 
 
-class Entity:
+class Entity(object):
     tick = 0
 
     def __init__(self, x, y, array, speed=1, health=100, damage=10, bullet=None):
