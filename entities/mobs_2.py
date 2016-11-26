@@ -17,6 +17,6 @@ class Skeleton(Entity):
     def update(self):
         super(self.__class__, self).update()
 
-        player_pos = self.get_closest_player_pos()
+
 
 
