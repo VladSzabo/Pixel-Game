@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1055a760-d2d4-4e4a-8381-3fceec0af075" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Game1.iml" afterPath="$PROJECT_DIR$/.idea/Game1.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entities/Bullet.py" afterPath="$PROJECT_DIR$/entities/Bullet.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entities/Bullets.py" afterPath="$PROJECT_DIR$/entities/Bullets.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entities/Entities.py" afterPath="$PROJECT_DIR$/entities/Entities.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entities/Player.py" afterPath="$PROJECT_DIR$/entities/Player.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/general/Net.py" afterPath="$PROJECT_DIR$/general/Net.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/general/settings.txt" afterPath="$PROJECT_DIR$/general/settings.txt" />
     </list>
     <ignored path="Game1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,18 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mobs_2.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/entities/mobs_2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Entities.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/entities/Entities.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -75,12 +59,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Net.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Net.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/general/Net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="571">
-              <caret line="91" column="78" selection-start-line="91" selection-start-column="78" selection-end-line="91" selection-end-column="78" />
-              <folding />
+            <state relative-caret-position="503">
+              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+              <folding>
+                <marker date="1480173526097" expanded="true" signature="134:2971" ph="..." />
+                <marker date="1480173526097" expanded="true" signature="1135:2971" ph="..." />
+                <marker date="1480173526097" expanded="true" signature="1880:2971" ph="..." />
+                <marker date="1480173526097" expanded="true" signature="1961:2971" ph="..." />
+                <marker date="1480173526097" expanded="true" signature="2776:2971" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,6 +107,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Bullet.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/entities/Bullet.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Player.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/entities/Player.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -129,11 +131,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Bullets.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Bullets.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/entities/Bullets.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="7" column="92" selection-start-line="7" selection-start-column="92" selection-end-line="7" selection-end-column="92" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -166,18 +168,18 @@
         <option value="$PROJECT_DIR$/settings" />
         <option value="$PROJECT_DIR$/entities/Entity.py" />
         <option value="$PROJECT_DIR$/GameEngine.py" />
-        <option value="$PROJECT_DIR$/general/settings.txt" />
         <option value="$PROJECT_DIR$/general/Main.py" />
         <option value="$PROJECT_DIR$/entities/Mobs.py" />
         <option value="$PROJECT_DIR$/general/Constants.py" />
         <option value="$PROJECT_DIR$/world/World.py" />
         <option value="$PROJECT_DIR$/entities/mobs2.py" />
         <option value="$PROJECT_DIR$/entities/mobs_2.py" />
-        <option value="$PROJECT_DIR$/entities/Bullet.py" />
-        <option value="$PROJECT_DIR$/entities/Bullets.py" />
         <option value="$PROJECT_DIR$/entities/Player.py" />
         <option value="$PROJECT_DIR$/entities/Entities.py" />
         <option value="$PROJECT_DIR$/general/Net.py" />
+        <option value="$PROJECT_DIR$/general/settings.txt" />
+        <option value="$PROJECT_DIR$/entities/Bullet.py" />
+        <option value="$PROJECT_DIR$/entities/Bullets.py" />
       </list>
     </option>
   </component>
@@ -876,7 +878,7 @@
         <state relative-caret-position="187">
           <caret line="11" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
-            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#0#34#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -886,17 +888,7 @@
         <state relative-caret-position="68">
           <caret line="4" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entities/Bullet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -906,7 +898,7 @@
         <state relative-caret-position="663">
           <caret line="39" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="125" selection-end-column="28" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -915,42 +907,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entities/Bullets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entities/Player.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/world/World.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/general/settings.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -967,9 +923,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/general/Net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="91" column="78" selection-start-line="91" selection-start-column="78" selection-end-line="91" selection-end-column="78" />
+        <state relative-caret-position="503">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding>
+            <marker date="1480173526097" expanded="true" signature="134:2971" ph="..." />
+            <marker date="1480173526097" expanded="true" signature="1135:2971" ph="..." />
+            <marker date="1480173526097" expanded="true" signature="1880:2971" ph="..." />
+            <marker date="1480173526097" expanded="true" signature="1961:2971" ph="..." />
+            <marker date="1480173526097" expanded="true" signature="2776:2971" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/general/settings.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/world/World.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entities/Bullet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entities/Player.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entities/Bullets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="92" selection-start-line="7" selection-start-column="92" selection-end-line="7" selection-end-column="92" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

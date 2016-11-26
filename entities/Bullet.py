@@ -16,7 +16,7 @@ class Bullet(object):
         self.speed = speed
         self.pellets = []
 
-    def start(self, point, dir_x, dir_y):
+    def start(self, point, angle):
         pass
 
     def render(self, game_display):
