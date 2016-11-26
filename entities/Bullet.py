@@ -1,19 +1,20 @@
 import pygame
 from general.Constants import Constants
 from math import cos, sin, radians
+from general.Net import Client
 
 
 class Bullet(object):
-
     alive = False
     life_counter = 0
 
-    def __init__(self, image, size, against_mobs, life, speed):
+    def __init__(self, image, size, against_mobs, life, speed, damage):
         self.image = image
         self.size = size
         self.against_mobs = against_mobs
         self.life = life
         self.speed = speed
+        self.damage = damage
         self.pellets = []
 
     def start(self, point, angle):
@@ -41,7 +42,18 @@ class Bullet(object):
         self.life_counter += 1
 
     def collide_with_mobs(self):
-        pass
+        mobs = Constants.get_all_mobs()
+        for p in self.pellets:
+            for mob in mobs:
+                for info in mob.array:
+                    if pygame.Rect(p[0][0], p[0][1], p[0][2], p[0][3]).colliderect(pygame.Rect(
+                                    (mob.x + info[0][0]) * Constants.block_size,
+                                    (mob.y + info[0][1]) * Constants.block_size,
+                            Constants.block_size, Constants.block_size
+                    )):
+                        mob.health -= self.damage
+                        self.life_counter = self.life
+                        Client.send("dmg|" + str(Client.my_id) + "|" + str(mob.id) + "|" + str(self.damage) + "|?")
 
     def collide_with_players(self):
         pass

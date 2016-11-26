@@ -7,13 +7,11 @@ from math import atan2, degrees, pi
 from copy import deepcopy
 
 
-class Player:
+class Player(object):
     health = 100
     tick = 0
-    bullet_time, bullet_rate = 0, 5
+    bullet_time, bullet_rate = 0, 10
     can_shoot = True
-    frame_x, frame_y, max_frames = 1, 1, 3
-    dir_x, dir_y = 1, 1
 
     def __init__(self, id_, color, x, y):
         self.id = id_
@@ -24,6 +22,7 @@ class Player:
         self.bullets = []
 
     def render(self, game_display):
+
         game_display.fill(self.color,
                           [self.x * Constants.block_size - Constants.sX, self.y * Constants.block_size - Constants.sY,
                            Constants.block_size, Constants.block_size])
@@ -98,7 +97,6 @@ class Player:
 
                 self.x += dir_x
                 self.y += dir_y
-
                 Client.send("coord|" + str(self.id) + "|" + str(self.x) + "|" + str(self.y) + "|?")
 
                 Constants.sX += dir_x * Constants.block_size
@@ -116,8 +114,8 @@ class Player:
     def collision(self, dir_x, dir_y, ctrl):
         col = False
         if 0 <= self.x + dir_x < Map.width and 0 <= self.y + dir_y < Map.height:
-            if Map.world[self.y + dir_y][self.x + dir_x].collide:
-                if ctrl and Map.world[self.y + dir_y][self.x + dir_x].image_fore == self.color + (100,):
+            if Map.world[int(self.y + dir_y)][int(self.x + dir_x)].collide:
+                if ctrl and Map.world[int(self.y + dir_y)][int(self.x + dir_x)].image_fore == self.color + (100,):
                     col = False
                 else:
                     col = True

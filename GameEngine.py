@@ -23,7 +23,6 @@ class App(object):
         self.height = height
         self.background_color = background_color
 
-        pygame.init()
         self.game_display = pygame.display.set_mode((width, height), pygame.SRCALPHA)
         pygame.display.set_caption(title)
         self.main_loop()

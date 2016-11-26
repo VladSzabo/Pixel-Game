@@ -5,11 +5,11 @@ from random import randint
 
 class Zombie(Entity):
 
-    def __init__(self, x, y):
+    def __init__(self, id_, x, y):
         image = Constants.images["zombie"]
         template = [[[0, 0], image], [[0, 1], image]]
 
-        super(self.__class__, self).__init__(x, y, template, 1./10)
+        super(self.__class__, self).__init__(id_, x, y, template, 1./10)
         del image, template
 
     def update(self):
@@ -31,5 +31,6 @@ class Zombie(Entity):
         else:
             dir_y = 0
 
-        self.move(dir_x, dir_y)
+        if not self.collision_with_mobs(dir_x, dir_y):
+            self.move(dir_x, dir_y)
 

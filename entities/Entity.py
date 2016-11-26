@@ -6,8 +6,9 @@ from math import sqrt
 class Entity(object):
     tick = 0
 
-    def __init__(self, x, y, array, speed=1, health=100, damage=10, bullet=None):
+    def __init__(self, id_, x, y, array, speed=1, health=100, damage=10, bullet=None):
         # [[[0, 0], "image"]]
+        self.id = id_
         self.x = x
         self.y = y
         self.array = array
@@ -56,6 +57,17 @@ class Entity(object):
                 col = True
 
         return col
+
+    def collision_with_mobs(self, dir_x, dir_y):
+        mobs = Constants.get_all_mobs()
+
+        for mob in mobs:
+            if mob.id != self.id:
+                for i in self.array:
+                    for j in mob.array:
+                        if self.x + dir_x + i[0][0] == mob.x + j[0][0] and self.y + dir_y + i[0][1] == mob.y + j[0][1]:
+                            return True
+        return False
 
     def get_closest_player_pos(self):
 

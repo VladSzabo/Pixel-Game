@@ -2,7 +2,7 @@ from general.Constants import Constants
 import socket
 from threading import Thread
 from world.World import Map
-
+from gui.Messages import Messages
 
 class Client(object):
 
@@ -91,3 +91,26 @@ class Client(object):
                     player = Constants.get_player_by_id(int(info[1]))
                     player.add_bullet(int(info[2]), int(info[3]), int(info[4]))
 
+                elif "msg" in packet:
+                    info = packet.split("|")
+                    Messages.add_message(info[2])
+
+                elif "dmg" in packet:
+                    info = packet.split("|")
+                    mobs = Constants.get_all_mobs()
+                    for mob in mobs:
+                        if mob.id == int(info[2]):
+                            mob.health -= int(info[3])
+                            break
+
+                elif "spawn" in packet:
+                    info = packet.split("|")
+                    Constants.add_mob(info[2], int(info[3]), int(info[4]), int(info[5]))
+
+                elif "mob" in packet:
+                    info = packet.split("|")
+                    mobs = Constants.get_all_mobs()
+                    for mob in mobs:
+                        if mob.id == int(info[2]):
+                            mob.x = int(info[3])
+                            mob.y = int(info[4])

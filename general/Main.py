@@ -4,6 +4,7 @@ from general.Constants import Constants
 from world.World import Map
 from entities.Entities import Entities
 from general.Net import Client
+from gui.Messages import Messages
 
 
 class Game(App):
@@ -11,11 +12,13 @@ class Game(App):
     def __init__(self, title, width_, height_, background_color=(255, 255, 255)):
         Map()
         Entities()
+        Messages()
         super(self.__class__, self).__init__(title, width_, height_, background_color)
 
     def render(self, game_display):
         Map.render(game_display)
         Entities.render(game_display)
+        Messages.render(game_display)
 
     def update(self):
         Entities.update()
@@ -53,6 +56,7 @@ class Game(App):
                 Constants.CTRL = False
 
 if __name__ == "__main__":
+    pygame.init()
     info = open("settings.txt")
     connection_type = info.readline().replace("\n", "").replace(" ", "").split("=")[1]
     ip = info.readline().replace("\n", "").replace(" ", "").split("=")[1]
@@ -64,6 +68,7 @@ if __name__ == "__main__":
     Constants()
 
     if connection_type == "server":
+        Constants.HOST = True
         Server(port)
         Client(None, port)
     else:
