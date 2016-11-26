@@ -16,7 +16,8 @@ class Constants(object):
 
     images = {
         "block": pygame.image.load("res/block.png"),
-        "zombie": pygame.image.load("res/zombie.png")
+        "zombie": pygame.image.load("res/zombie.png"),
+        "skeleton": pygame.image.load("res/skeleton.png")
     }
 
     def __init__(self):

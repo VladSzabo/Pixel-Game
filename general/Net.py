@@ -63,8 +63,9 @@ class Client(object):
                         Constants.add_player(i)
 
             else:
-                Constants.add_player(Client.playersConnected)
-                Client.playersConnected += 1
+                if not int(data.split("|")[1]) < Client.playersConnected:
+                    Constants.add_player(Client.playersConnected)
+                    Client.playersConnected += 1
 
         else:
             data_chunks = data.split("?")
@@ -72,7 +73,7 @@ class Client(object):
                 if "coord" in packet:
                     info = packet.split("|")
                     player = Constants.get_player_by_id(int(info[1]))
-                    player.x, player.y = int(info[2]), int(info[3])
+                    player.set_pos(int(info[2]), int(info[3]))
 
                 elif "shift" in packet:
                     info = packet.split("|")

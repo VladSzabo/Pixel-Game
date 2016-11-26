@@ -19,6 +19,7 @@ class Game(App):
 
     def update(self):
         Entities.update()
+        Map.update()
 
     def handle_keys(self, event):
         super(self.__class__, self).handle_keys(event)

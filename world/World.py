@@ -10,6 +10,8 @@ class Block:
         self.rect = rect
         self.collide = collide
 
+    timer = 0
+
     def render(self, game_display):
         if self.image_bg is not None and "tuple" not in str(type(self.image_bg)):
             game_display.blit(self.image_bg,
@@ -27,6 +29,15 @@ class Block:
             rect.fill(self.image_fore)
             game_display.blit(rect, (self.rect[0] - Constants.sX, self.rect[1] - Constants.sY))
             del rect
+
+    def update(self):
+        if "tuple" in str(type(self.image_fore)):
+            if self.image_fore[3] == 100:
+                self.timer += 1
+                if self.timer >= 600:
+                    self.image_fore = None
+                    self.collide = False
+                    self.timer = 0
 
 
 class Map:
@@ -60,3 +71,9 @@ class Map:
 
                 if 0 <= i < Map.height and 0 <= j < Map.width:
                     Map.world[i][j].render(game_display)
+
+    @staticmethod
+    def update():
+        for i in range(Map.height):
+            for j in range(Map.width):
+                Map.world[i][j].update()
