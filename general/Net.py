@@ -40,6 +40,7 @@ class Client(object):
     def start_client():
         Client.socket()
         Client.send("connect")
+        Client.send("connect")
 
     @staticmethod
     def read_data(data):
