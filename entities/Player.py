@@ -12,6 +12,8 @@ class Player:
     tick = 0
     bullet_time, bullet_rate = 0, 5
     can_shoot = True
+    frame_x, frame_y, max_frames = 1, 1, 3
+    dir_x, dir_y = 1, 1
 
     def __init__(self, id_, color, x, y):
         self.id = id_
@@ -96,6 +98,7 @@ class Player:
 
                 self.x += dir_x
                 self.y += dir_y
+
                 Client.send("coord|" + str(self.id) + "|" + str(self.x) + "|" + str(self.y) + "|?")
 
                 Constants.sX += dir_x * Constants.block_size
