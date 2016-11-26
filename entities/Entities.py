@@ -10,10 +10,12 @@ class Entities:
     colors = [(0, 0, 0), (255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0)]
 
     def __init__(self):
+        """
         Entities.mobs += [
             Zombie(20, 20),
             Skeleton(1, 1)
          ]
+         """
 
     @staticmethod
     def render(game_display):

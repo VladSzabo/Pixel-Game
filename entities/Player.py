@@ -3,13 +3,14 @@ from world.World import Map
 from general.Net import Client
 from entities.Bullets import SimpleBullet
 from pygame import mouse
+from math import atan2, degrees, pi
+from copy import deepcopy
 
 
 class Player:
-
     health = 100
     tick = 0
-    bullet_time, bullet_rate = 0, 30
+    bullet_time, bullet_rate = 0, 5
     can_shoot = True
 
     def __init__(self, id_, color, x, y):
@@ -18,14 +19,16 @@ class Player:
         self.x = x
         self.y = y
         self.bullet = SimpleBullet(color + (180,))
+        self.bullets = []
 
     def render(self, game_display):
         game_display.fill(self.color,
                           [self.x * Constants.block_size - Constants.sX, self.y * Constants.block_size - Constants.sY,
                            Constants.block_size, Constants.block_size])
 
-        if self.bullet.alive:
-            self.bullet.render(game_display)
+        for bullet in self.bullets:
+            if bullet.alive:
+                bullet.render(game_display)
 
     def update(self):
         if self.id == Client.my_id:
@@ -43,10 +46,12 @@ class Player:
 
                 mouse_pos = mouse.get_pos()
                 my_pos = (self.x * Constants.block_size - Constants.sX, self.y * Constants.block_size - Constants.sY)
-                triangle_corner = (mouse_pos[0], my_pos[1])
+                angle = int(180 - Player.get_angle(mouse_pos[0], mouse_pos[1], my_pos[0], my_pos[1]))
 
-                print(mouse_pos)
-                #self.bullet.start()
+                self.add_bullet(my_pos[0] + Constants.sX, my_pos[1] + Constants.sY, angle)
+
+                Client.send("bullet|" + str(self.id) + "|" + str(int(my_pos[0] + Constants.sX)) + "|" +
+                            str(int(my_pos[1] + Constants.sY)) + "|" + str(angle) + "|?")
 
             self.bullet_time += 1
             if self.bullet_time >= self.bullet_rate:
@@ -57,8 +62,28 @@ class Player:
             if self.tick >= 600:
                 self.tick = 0
 
-        if self.bullet.alive:
-            self.bullet.update()
+        for bullet in self.bullets:
+
+            if bullet.alive:
+                bullet.update()
+                if bullet.life_counter >= self.bullet.life:
+                    bullet.life_counter = 0
+                    bullet.alive = False
+
+    def add_bullet(self, x, y, angle):
+        self.bullet.start((x, y), angle)
+        self.bullet.alive = True
+
+        found_bullet = False
+
+        for i in range(len(self.bullets)):
+            if not self.bullets[i].alive:
+                found_bullet = True
+                self.bullets[i] = deepcopy(self.bullet)
+                break
+
+        if not found_bullet:
+            self.bullets.append(deepcopy(self.bullet))
 
     def move(self, dir_x, dir_y):
         if self.tick % 6 == 0:
@@ -96,3 +121,11 @@ class Player:
         else:
             col = True
         return col
+
+    @staticmethod
+    def get_angle(x1, y1, x2, y2):
+        dx = x2 - x1
+        dy = y2 - y1
+        rads = atan2(-dy, dx)
+        rads %= 2 * pi
+        return degrees(rads)

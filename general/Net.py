@@ -86,3 +86,8 @@ class Client(object):
                     Map.world[int(info[3])][int(info[2])].image_fore = None
                     Map.world[int(info[3])][int(info[2])].collide = False
 
+                elif "bullet" in packet:
+                    info = packet.split("|")
+                    player = Constants.get_player_by_id(int(info[1]))
+                    player.add_bullet(int(info[2]), int(info[3]), int(info[4]))
+
